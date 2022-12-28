@@ -5,6 +5,8 @@ const userRoutes=require('./routes/user');
 const bodyParser= require('body-parser');
 const authRoute=require('./routes/auth');
 const productRoute= require('./routes/product');
+const orderRoute= require('./routes/order');
+const cartRoute= require('./routes/cart');
 
 const app=express();
 //FIXING STRICTQUERY
@@ -27,6 +29,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use('/api/auth',authRoute);
 app.use('/api/users',userRoutes);
 app.use('/api/products',productRoute);
+app.use('/api/orders',orderRoute);
+app.use('/api/carts',cartRoute);
 app.listen(process.env.PORT || 3000,()=>{
     console.log('Greetings from server');
 })
